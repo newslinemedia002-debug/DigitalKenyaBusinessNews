@@ -1,0 +1,114 @@
+import Link from 'next/link'
+import { getAuthors } from '@/lib/content'
+import { SITE_NAME, siteUrl } from '@/lib/site'
+import styles from '@/app/inner.module.css'
+
+export const revalidate = 3600
+
+export const metadata = {
+  title: 'Writers and editors',
+  description:
+    'The journalists and editors of Digital Kenya Business News: who they are, what they cover and where their reporting appears.',
+  alternates: { canonical: '/authors' },
+  openGraph: {
+    title: `Writers and editors - ${SITE_NAME}`,
+    description: 'The newsroom behind Digital Kenya Business News.',
+    url: '/authors',
+    type: 'website',
+    locale: 'en_KE',
+  },
+}
+
+export default async function AuthorsPage() {
+  const authors = await getAuthors()
+
+  const collectionLd = {
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    name: 'Writers and editors',
+    description:
+      'The journalists and editors of Digital Kenya Business News: who they are, what they cover and where their reporting appears.',
+    url: `${siteUrl()}/authors`,
+    isPartOf: { '@id': `${siteUrl()}/#website` },
+    publisher: { '@id': `${siteUrl()}/#organization` },
+    mainEntity: {
+      '@type': 'ItemList',
+      numberOfItems: authors.length,
+      itemListElement: authors.map((author, index) => ({
+        '@type': 'ListItem',
+        position: index + 1,
+        url: `${siteUrl()}/authors/${author.slug}`,
+        item: {
+          '@type': 'Person',
+          name: author.name,
+          jobTitle: author.role,
+          url: `${siteUrl()}/authors/${author.slug}`,
+        },
+      })),
+    },
+  }
+
+  const breadcrumbLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: siteUrl() },
+      { '@type': 'ListItem', position: 2, name: 'Writers', item: `${siteUrl()}/authors` },
+    ],
+  }
+
+  return (
+    <div className={`container ${styles.page}`}>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(collectionLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }}
+      />
+      <header className={styles.header}>
+        <div className={styles.headerTop}>
+          <div>
+            <p className={styles.headerKicker}>The newsroom</p>
+            <h1 className={styles.headerTitle}>Writers</h1>
+          </div>
+          <p className={styles.headerCount}>{authors.length} journalists</p>
+        </div>
+        <p className={styles.headerDek}>
+          Every story carries a byline. These are the reporters and editors who file for
+          Digital Kenya Business News — and the subjects they know best.
+        </p>
+      </header>
+
+      <div className={styles.authorGrid}>
+        {authors.map((author) => {
+          const initials = author.name
+            .replace(/^The /, '')
+            .split(' ')
+            .slice(0, 2)
+            .map((part) => part.charAt(0))
+            .join('')
+
+          return (
+            <article key={author.slug} className={styles.authorCard}>
+              <div className={styles.avatar} aria-hidden="true">
+                {initials}
+              </div>
+              <div>
+                <h2 className={styles.authorName}>
+                  <Link href={`/authors/${author.slug}`}>{author.name}</Link>
+                </h2>
+                <p className={styles.authorRole}>{author.role}</p>
+                <p className={styles.authorBio}>{author.bio}</p>
+                <p className={styles.authorCount}>
+                  {author.count} {author.count === 1 ? 'story' : 'stories'}
+                </p>
+              </div>
+            </article>
+          )
+        })}
+      </div>
+    </div>
+  )
+}
