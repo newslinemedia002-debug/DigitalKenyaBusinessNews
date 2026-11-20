@@ -45,11 +45,23 @@
   text-decoration: none;
 }
 
-.logoImg {
-  height: clamp(38px, 4.6vw, 58px);
-  width: auto;
-  max-width: clamp(138px, 20vw, 210px);
-  display: block;
+.wordTop {
+  font-family: var(--display);
+  font-size: clamp(30px, 3.6vw, 42px);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 0.96;
+}
+
+.wordKenya {
+  margin-top: 6px;
+  font-family: var(--sans);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.52em;
+  text-indent: 0.52em;
+  text-transform: uppercase;
+  color: var(--accent);
 }
 
 .brandCopy {
@@ -69,14 +81,14 @@
   font-size: 11px;
   font-weight: 700;
   letter-spacing: 0.06em;
-  color: #fff;
-  border-bottom: 1px solid rgba(244, 241, 234, 0.4);
+  color: var(--accent);
+  border-bottom: 1px solid color-mix(in srgb, var(--accent) 45%, transparent);
   padding-bottom: 4px;
 }
 
 .briefing:hover {
-  color: #fff;
-  border-color: var(--accent);
+  color: var(--accent-dark);
+  border-color: var(--accent-dark);
   text-decoration: none;
 }
 
@@ -161,4 +173,86 @@
   .col h2:empty {
     display: none;
   }
+}
+
+/* ============================================================
+   Times layout layer — flat cream footer, hairlines.
+   ============================================================ */
+
+.footer {
+  background: var(--paper);
+  color: var(--ink);
+  border-top: 1px solid var(--ink);
+}
+
+.flag {
+  display: none;
+}
+
+.wordmark {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  gap: 7px;
+  color: var(--ink);
+}
+
+.wordTop,
+.wordKenya {
+  font-family: var(--display);
+  font-size: 26px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  text-transform: none;
+  text-indent: 0;
+  color: var(--ink);
+}
+
+.brandCopy {
+  font-family: var(--serif);
+  color: var(--muted);
+}
+
+.briefing {
+  font-family: var(--sans);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent);
+  border-bottom-color: color-mix(in srgb, var(--accent) 45%, transparent);
+}
+
+.col h2 {
+  font-family: var(--serif);
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: -0.005em;
+  text-transform: none;
+  color: var(--ink);
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 7px;
+}
+
+.col a {
+  font-family: var(--serif);
+  font-size: 14px;
+  color: var(--ink-soft);
+}
+
+.col a:hover {
+  color: var(--ink);
+  text-decoration: underline;
+}
+
+.bottom {
+  border-top: 1px solid var(--rule);
+}
+
+.bottomInner,
+.bottomNote {
+  font-family: var(--sans);
+  font-size: 10.5px;
+  letter-spacing: 0.03em;
+  color: var(--muted);
 }

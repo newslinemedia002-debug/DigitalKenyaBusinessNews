@@ -3,10 +3,10 @@ import styles from '@/app/inner.module.css'
 export const metadata = {
   title: 'Terms of use',
   description:
-    'The terms governing use of the Trending News Kenya website and newsletter.',
+    'The terms governing use of the Kenya Business News website and newsletter.',
   alternates: { canonical: '/terms' },
   openGraph: {
-    title: 'Terms - Trending News Kenya',
+    title: 'Terms - Kenya Business News',
     url: '/terms',
     type: 'website',
     locale: 'en_KE',
@@ -22,7 +22,7 @@ export default function TermsPage() {
       </header>
 
       <main className="prose">
-        <h1>Terms of use for Trending News Kenya</h1>
+        <h1>Terms of use for Kenya Business News</h1>
 
         <h2>Acceptance</h2>
         <p>
@@ -33,7 +33,7 @@ export default function TermsPage() {
         <h2>Copyright</h2>
         <p>
           All original content on this site — articles, photographs, graphics, videos
-          and design — is the property of Trending News Kenya or its credited
+          and design — is the property of Kenya Business News or its credited
           contributors. All rights reserved. You may not reproduce, modify, distribute,
           display or transmit any part of this content without prior written permission.
         </p>
@@ -54,7 +54,7 @@ export default function TermsPage() {
 
         <h2>External links</h2>
         <p>
-          The site contains links to external resources. Trending News Kenya is not
+          The site contains links to external resources. Kenya Business News is not
           responsible for the availability, accuracy or content of any external site.
           These links are provided for convenience only.
         </p>
@@ -62,13 +62,13 @@ export default function TermsPage() {
         <h2>No warranty</h2>
         <p>
           Content is provided "as is" without warranties of any kind, either express or
-          implied. To the fullest extent permitted by law, Trending News Kenya excludes
+          implied. To the fullest extent permitted by law, Kenya Business News excludes
           all conditions, representations and warranties in relation to the content.
         </p>
 
         <h2>Limitation of liability</h2>
         <p>
-          To the fullest extent permitted by law, Trending News Kenya shall not be
+          To the fullest extent permitted by law, Kenya Business News shall not be
           liable for any indirect, consequential or special damages, or any loss of
           profit, revenue, data or goodwill, whether in contract, tort or otherwise,
           arising out of or in connection with the use of this website.

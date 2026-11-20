@@ -25,6 +25,16 @@ const ALLOWED_HOSTS = [
   'nairobiwire.com',
   'kenyanews.go.ke',
   'nipashebiz.co.ke',
+  'businessdailyafrica.com',
+  'businesstoday.co.ke',
+  'thebusinesswatch.com',
+  'aptantech.com',
+  // Billionaires.Africa and Business Insider Africa serve their pictures
+  // from these CDNs.
+  'storage.ghost.io',
+  'ocdn.eu',
+  'businessinsider.com',
+  'capitalfm.co.ke',
 ]
 
 const REFERERS = [
@@ -36,6 +46,14 @@ const REFERERS = [
   ['bbc.com', 'https://www.bbc.com/'],
   ['aljazeera.com', 'https://www.aljazeera.com/'],
   ['aljazeera.net', 'https://www.aljazeera.com/'],
+  ['businessdailyafrica.com', 'https://www.businessdailyafrica.com/'],
+  ['businesstoday.co.ke', 'https://businesstoday.co.ke/'],
+  ['thebusinesswatch.com', 'https://thebusinesswatch.com/'],
+  ['aptantech.com', 'https://aptantech.com/'],
+  ['storage.ghost.io', 'https://www.billionaires.africa/'],
+  ['ocdn.eu', 'https://africa.businessinsider.com/'],
+  ['businessinsider.com', 'https://africa.businessinsider.com/'],
+  ['capitalfm.co.ke', 'https://www.capitalfm.co.ke/'],
 ]
 
 const UA =

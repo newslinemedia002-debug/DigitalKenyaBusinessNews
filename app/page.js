@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import { buildFrontPage } from '@/lib/frontpage'
-import { articleImageUrl, getFeaturedArticle } from '@/lib/content'
-import { SITE_NAME, sectionKicker, siteUrl } from '@/lib/site'
+import { articleImageUrl, getBreakingArticles, getFeaturedArticle } from '@/lib/content'
+import { SITE_NAME, sectionKicker, sectionLabel, siteUrl } from '@/lib/site'
 import BreakingBar from '@/components/BreakingBar'
 import StoryCard from '@/components/StoryCard'
 import SectionHeader from '@/components/SectionHeader'
@@ -10,18 +10,22 @@ import MostRead from '@/components/MostRead'
 import NewsletterBand from '@/components/NewsletterBand'
 import styles from './page.module.css'
 
-// Render per request so opening the site always runs a fresh wire sync.
-export const dynamic = 'force-dynamic'
-export const fetchCache = 'force-no-store'
+// The front page prints from the stored archive, so it can be served from the
+// full route cache and refreshed in the background every 30 seconds.
+export const revalidate = 30
 
 export async function generateMetadata() {
-  const lead = await getFeaturedArticle()
+  // Sharing the front page should preview the day's lead story: the breaking
+  // item when there is one, then the featured story, then the newest report.
+  const breaking = await getBreakingArticles(1)
+  const lead = breaking[0]?.isBreaking ? breaking[0] : await getFeaturedArticle()
   const base = siteUrl()
   const title = lead ? lead.title : `${SITE_NAME} — Kenya news, politics, business and sport`
   const description = lead
     ? lead.dek || `${lead.title} — ${SITE_NAME}`
-    : 'Breaking news and analysis from Kenya, Africa and the world. Politics, business, technology, sport, culture and opinion, reported from Nairobi by Trending News Kenya.'
+    : 'Breaking news and analysis from Kenya, Africa and the world. Politics, business, technology, sport, culture and opinion, reported from Nairobi by Kenya Business News.'
   const image = lead ? articleImageUrl(lead) : `${base}/og-default.png`
+  const credit = lead ? (lead.wire ? lead.source : lead.author?.name) : null
 
   return {
     title,
@@ -31,10 +35,18 @@ export async function generateMetadata() {
       types: { 'application/rss+xml': '/feed.xml' },
     },
     openGraph: {
+      // The share card carries the lead story's own headline, standfirst,
+      // picture and dateline, not the masthead's generic copy.
+      type: lead ? 'article' : 'website',
       url: '/',
       title,
       description,
       siteName: SITE_NAME,
+      locale: 'en_KE',
+      publishedTime: lead?.publishedAt || undefined,
+      modifiedTime: lead?.updatedAt || lead?.publishedAt || undefined,
+      section: lead ? sectionLabel(lead.section) : undefined,
+      authors: credit ? [credit] : undefined,
       images: image
         ? [{ url: image, width: 1600, height: 900, alt: lead?.title || SITE_NAME }]
         : [],
@@ -154,6 +166,25 @@ export default async function HomePage() {
                 </div>
               </div>
             ) : null}
+            {/* House advertisement: Newsline Media attachment intake. */}
+            <a
+              className={styles.railAd}
+              href="https://www.newslinemedia.co.ke/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span className={styles.railAdLabel}>Advertisement</span>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                className={styles.railAdImage}
+                src="/images/newsline-attachment-ad.webp"
+                alt="Newsline Media and Training Agency: attachment opportunities in media, public relations, I.T and digital marketing"
+                width={1600}
+                height={417}
+                loading="lazy"
+              />
+              <span className={styles.railAdCta}>Apply now →</span>
+            </a>
           </aside>
         </div>
 

@@ -8,11 +8,11 @@ export const revalidate = 3600
 export const metadata = {
   title: 'Writers and editors',
   description:
-    'The journalists and editors of Trending News Kenya: who they are, what they cover and where their reporting appears.',
+    'The journalists and editors of Kenya Business News: who they are, what they cover and where their reporting appears.',
   alternates: { canonical: '/authors' },
   openGraph: {
     title: `Writers and editors - ${SITE_NAME}`,
-    description: 'The newsroom behind Trending News Kenya.',
+    description: 'The newsroom behind Kenya Business News.',
     url: '/authors',
     type: 'website',
     locale: 'en_KE',
@@ -27,7 +27,7 @@ export default async function AuthorsPage() {
     '@type': 'CollectionPage',
     name: 'Writers and editors',
     description:
-      'The journalists and editors of Trending News Kenya: who they are, what they cover and where their reporting appears.',
+      'The journalists and editors of Kenya Business News: who they are, what they cover and where their reporting appears.',
     url: `${siteUrl()}/authors`,
     isPartOf: { '@id': `${siteUrl()}/#website` },
     publisher: { '@id': `${siteUrl()}/#organization` },
@@ -77,7 +77,7 @@ export default async function AuthorsPage() {
         </div>
         <p className={styles.headerDek}>
           Every story carries a byline. These are the reporters and editors who file for
-          Trending News Kenya — and the subjects they know best.
+          Kenya Business News — and the subjects they know best.
         </p>
       </header>
 

@@ -36,7 +36,7 @@ export default async function DeskLayout({ children }) {
       <header className={styles.topbar}>
         <div className={styles.topbarInner}>
           <Link href="/desk" className={styles.wordmark}>
-            Trending News <span className={styles.wordmarkMeta}>Desk</span>
+            Kenya Business <span className={styles.wordmarkMeta}>News Desk</span>
           </Link>
           <DeskNav isAdmin={user.role === 'admin'} />
           <div className={styles.who}>

@@ -1,4 +1,3 @@
-import Image from 'next/image'
 import Link from 'next/link'
 import { SECTIONS, SITE_DESCRIPTION, SITE_NAME } from '@/lib/site'
 import styles from './SiteFooter.module.css'
@@ -17,13 +16,8 @@ export default function SiteFooter() {
       <div className={`container ${styles.inner}`}>
         <div className={styles.brandCol}>
           <Link href="/" className={styles.wordmark} aria-label={`${SITE_NAME} — home`}>
-            <Image
-              src="/brand/logo.png"
-              alt={SITE_NAME}
-              width={1307}
-              height={362}
-              className={styles.logoImg}
-            />
+            <span className={styles.wordTop}>Kenya Business</span>
+            <span className={styles.wordKenya}>News</span>
           </Link>
           <p className={styles.brandCopy}>{SITE_DESCRIPTION}</p>
           <Link href="/newsletter" className={styles.briefing}>

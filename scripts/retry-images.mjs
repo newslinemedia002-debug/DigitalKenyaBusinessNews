@@ -3,7 +3,7 @@ import { mkdir, readFile, writeFile } from 'node:fs/promises'
 import path from 'node:path'
 
 const API = 'https://commons.wikimedia.org/w/api.php'
-const UA = 'TrendingNewsKenya/1.0 (newsroom demo build; contact: newsroom@example.com)'
+const UA = 'KenyaBusinessNews/1.0 (newsroom demo build; contact: newsroom@example.com)'
 const TARGETS = [
   { slug: 'tea-farm', query: 'tea plantation Kericho', alt: 'A tea plantation in the Kenyan highlands' },
   { slug: 'football', query: 'Harambee Stars Kenya football', alt: 'Kenyan football fans' },

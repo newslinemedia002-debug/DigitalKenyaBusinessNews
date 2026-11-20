@@ -4,6 +4,14 @@ import SiteChrome from '@/components/SiteChrome'
 import { SITE_NAME, SITE_DESCRIPTION, SITE_TAGLINE, siteUrl } from '@/lib/site'
 import { getFeaturedArticle, articleImageUrl } from '@/lib/content'
 
+const display = localFont({
+  src: './fonts/bodoni-moda.woff2',
+  variable: '--font-display',
+  weight: '400 900',
+  display: 'swap',
+  fallback: ['Bodoni MT', 'Didot', 'Georgia', 'serif'],
+})
+
 const serif = localFont({
   src: [
     { path: './fonts/newsreader.woff2', weight: '200 800', style: 'normal' },
@@ -51,7 +59,7 @@ export async function generateMetadata() {
       'Africa news',
       'world news',
       'Kenyan newspaper',
-      'Trending News Kenya',
+      'Kenya Business News',
     ],
     authors: [{ name: SITE_NAME, url: base }],
     creator: SITE_NAME,
@@ -120,7 +128,7 @@ const organizationLd = {
         {
           '@type': 'ContactPoint',
           contactType: 'newsroom',
-          email: 'newsroom@trendingnewskenya.co.ke',
+          email: 'newsroom@digitalkenyabusinessnews.co.ke',
           availableLanguage: ['en'],
         },
       ],
@@ -158,7 +166,7 @@ const organizationLd = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en-KE" className={`${serif.variable} ${sans.variable}`}>
+    <html lang="en-KE" className={`${display.variable} ${serif.variable} ${sans.variable}`}>
       <body>
         <script
           async

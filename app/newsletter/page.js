@@ -5,7 +5,7 @@ import styles from '@/app/inner.module.css'
 export const metadata = {
   title: 'The Briefing — our daily newsletter',
   description:
-    'The Briefing is a short daily email from the Trending News Kenya newsroom: the stories that matter, the context behind them, and what to watch next.',
+    'The Briefing is a short daily email from the Kenya Business News newsroom: the stories that matter, the context behind them, and what to watch next.',
   alternates: { canonical: '/newsletter' },
   openGraph: {
     title: `The Briefing - ${SITE_NAME}`,
@@ -23,7 +23,7 @@ export default function NewsletterPage() {
     name: 'The Briefing',
     url: `${siteUrl()}/newsletter`,
     description:
-      'A short daily email from the Trending News Kenya newsroom covering the stories that matter.',
+      'A short daily email from the Kenya Business News newsroom covering the stories that matter.',
   }
 
   return (

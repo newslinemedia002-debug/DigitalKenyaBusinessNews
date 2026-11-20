@@ -55,9 +55,9 @@ export async function GET() {
   const feed = `<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:media="http://search.yahoo.com/mrss/">
   <channel>
-    <title>Trending News Kenya — Latest</title>
+    <title>Kenya Business News — Latest</title>
     <link>${esc(base)}</link>
-    <description>The latest published stories from Trending News Kenya, including credited wire copy.</description>
+    <description>The latest published stories from Kenya Business News, including credited wire copy.</description>
     <language>en_KE</language>
     <lastBuildDate>${new Date().toUTCString()}</lastBuildDate>
     <ttl>5</ttl>

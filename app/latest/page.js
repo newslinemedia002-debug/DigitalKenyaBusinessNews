@@ -9,21 +9,21 @@ import {
 } from '@/lib/site'
 import styles from '@/app/inner.module.css'
 
-// Render per request so the page always shows the stored archive as it is.
-export const dynamic = 'force-dynamic'
-export const fetchCache = 'force-no-store'
+// The archive changes only when the desk writes, so a 30-second cache is
+// enough to keep the page current while making repeat visits instant.
+export const revalidate = 30
 
 export const metadata = {
   title: 'Latest news from Kenya and the world',
   description:
-    'The latest reporting from the Trending News Kenya newsroom, in chronological order: Kenya, politics, business, technology, sport, Africa and the world.',
+    'The latest reporting from the Kenya Business News newsroom, in chronological order: Kenya, politics, business, technology, sport, Africa and the world.',
   alternates: {
     canonical: '/latest',
     types: { 'application/rss+xml': '/feed.xml' },
   },
   openGraph: {
     title: `Latest news - ${SITE_NAME}`,
-    description: 'Every story from the Trending News Kenya newsroom, newest first.',
+    description: 'Every story from the Kenya Business News newsroom, newest first.',
     url: '/latest',
     type: 'website',
     locale: 'en_KE',

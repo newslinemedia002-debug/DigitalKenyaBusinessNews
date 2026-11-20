@@ -3,12 +3,12 @@ import { siteUrl } from '@/lib/site'
 import styles from '@/app/inner.module.css'
 
 export const metadata = {
-  title: 'About Trending News Kenya',
+  title: 'About Kenya Business News',
   description:
     'Who we are, what we stand for, and the standards that guide our reporting from Nairobi to the world.',
   alternates: { canonical: '/about' },
   openGraph: {
-    title: 'About - Trending News Kenya',
+    title: 'About - Kenya Business News',
     description:
       'Who we are, what we stand for, and the standards that guide our reporting from Nairobi to the world.',
     url: '/about',
@@ -19,23 +19,23 @@ export const metadata = {
 
 const FAQ = [
   {
-    q: 'Who publishes Trending News Kenya?',
-    a: 'Trending News Kenya is an independent digital newspaper based in Nairobi. It is not owned by a political party, a corporation or a government.',
+    q: 'Who publishes Kenya Business News?',
+    a: 'Kenya Business News is an independent newspaper based in Nairobi. It is not owned by a political party, a corporation or a government.',
   },
   {
-    q: 'What does Trending News Kenya cover?',
+    q: 'What does Kenya Business News cover?',
     a: 'Kenyan politics, business, technology, sport, entertainment, Africa and world news, reported from Nairobi and across Kenya.',
   },
   {
-    q: 'Where is Trending News Kenya based?',
+    q: 'Where is Kenya Business News based?',
     a: 'In Nairobi, Kenya. Its journalists and editors also report from Mombasa, Kisumu and the coast.',
   },
   {
     q: 'How can I contact the newsroom?',
-    a: 'Email editor@trendingnewskenya.co.ke for editorial enquiries, corrections, press and partnerships.',
+    a: 'Email editor@digitalkenyabusinessnews.co.ke for editorial enquiries, corrections, press and partnerships.',
   },
   {
-    q: 'How does Trending News Kenya handle corrections?',
+    q: 'How does Kenya Business News handle corrections?',
     a: 'Corrections are published promptly. The standards and corrections policy are set out on this page.',
   },
 ]
@@ -44,7 +44,7 @@ export default function AboutPage() {
   const pageLd = {
     '@context': 'https://schema.org',
     '@type': 'AboutPage',
-    name: 'About Trending News Kenya',
+    name: 'About Kenya Business News',
     url: `${siteUrl()}/about`,
     description:
       'Who we are, what we stand for, and the standards that guide our reporting from Nairobi to the world.',
@@ -98,7 +98,7 @@ export default function AboutPage() {
       <main className="prose">
         <h2>Our purpose</h2>
         <p>
-          Trending News Kenya is an independent digital newspaper based in Nairobi. We
+          Kenya Business News is an independent newspaper based in Nairobi. We
           cover Kenyan politics, business, technology, sport, entertainment, Africa and
           the world — with analysis and reporting written for readers in Kenya and the
           diaspora who want straight talk without the noise.
@@ -137,7 +137,7 @@ export default function AboutPage() {
 
         <h2>Contact</h2>
         <p>
-          You can reach the editorial team at <a href="mailto:editor@trendingnewskenya.co.ke">editor@trendingnewskenya.co.ke</a>.
+          You can reach the editorial team at <a href="mailto:editor@digitalkenyabusinessnews.co.ke">editor@digitalkenyabusinessnews.co.ke</a>.
           For press inquiries, advertising or partnership proposals, use the same address.
         </p>
 

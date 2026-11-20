@@ -75,7 +75,6 @@
   line-height: 1.02;
   letter-spacing: -0.022em;
   color: var(--ink);
-  text-wrap: balance;
 }
 
 .dek {
@@ -84,7 +83,7 @@
   font-size: clamp(18px, 2vw, 22px);
   line-height: 1.45;
   color: var(--muted);
-  max-width: 62ch;
+  max-width: none;
 }
 
 .bylineRow {
@@ -419,6 +418,29 @@
   font-size: 14px;
   line-height: 1.5;
   color: var(--muted);
+}
+
+.sourceLinkWrap {
+  margin-top: 10px;
+}
+
+.sourceLink {
+  display: inline-block;
+  font-family: var(--sans);
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 1px solid var(--accent);
+  padding-bottom: 1px;
+}
+
+.sourceLink:hover {
+  color: var(--ink);
+  border-bottom-color: var(--ink);
+  text-decoration: none;
 }
 
 .policyNote {

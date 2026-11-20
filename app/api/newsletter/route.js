@@ -34,7 +34,7 @@ export async function POST(request) {
 
   try {
     const { error } = await supabaseAdmin()
-      .from('tnk_newsletter_signups')
+      .from('dkbn_newsletter_signups')
       .insert({ email, source })
     if (error) throw error
     return NextResponse.json({ ok: true })

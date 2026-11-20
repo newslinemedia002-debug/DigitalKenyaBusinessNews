@@ -2,8 +2,70 @@ import Link from 'next/link'
 import styles from '@/app/article.module.css'
 
 /**
+ * Sentence splitting that survives the abbreviations news copy is full of
+ * ("Dr.", "U.S.", "No. 4") and decimals ("3.5 per cent").
+ */
+const ABBREVIATION = /(?:Mr|Mrs|Ms|Dr|Prof|St|Sr|Jr|Hon|Gov|Sen|Rep|Gen|Lt|Col|Capt|Sgt|Rev|Vs|etc|No|Co|Ltd|Inc|Corp|Dept|Est|Fig|Approx|Jan|Feb|Mar|Apr|Jun|Jul|Aug|Sep|Sept|Oct|Nov|Dec)$/i
+
+export function splitSentences(text) {
+  const parts = String(text).match(/[^.!?]+(?:[.!?]+["'”’)\]]*\s*|$)/g) || [text]
+  const out = []
+  for (const part of parts) {
+    const piece = part.trim()
+    if (!piece) continue
+    const prev = out[out.length - 1]
+    if (prev) {
+      const tail = prev.replace(/["'”’)\]]+$/, '')
+      const word = tail.replace(/[.!?]+$/, '')
+      const lastChar = tail.slice(-1)
+      const merges =
+        ABBREVIATION.test(word) ||
+        (/\d$/.test(lastChar) && /^\d/.test(piece)) ||
+        /^[a-z]/.test(piece)
+      if (merges) {
+        out[out.length - 1] = `${prev} ${piece}`
+        continue
+      }
+    }
+    out.push(piece)
+  }
+  return out
+}
+
+/**
+ * News copy arrives from the desk and from publisher feeds as one flat run of
+ * sentences — no newlines, no tags. Rendering that as a single paragraph gives
+ * readers a wall of text, so long blocks are broken into short paragraphs at
+ * sentence boundaries, two sentences to a paragraph.
+ */
+export function paragraphize(blocks) {
+  const out = []
+  for (const block of blocks) {
+    if (block.type !== 'p' || block.text.length < 260) {
+      out.push(block)
+      continue
+    }
+    const sentences = splitSentences(block.text)
+    if (sentences.length < 3) {
+      out.push(block)
+      continue
+    }
+    const groups = []
+    for (let i = 0; i < sentences.length; i += 2) groups.push(sentences.slice(i, i + 2).join(' '))
+    // Never leave a lonely closing sentence: fold it into the paragraph above.
+    if (groups.length > 1 && splitSentences(groups[groups.length - 1]).length === 1) {
+      const tail = groups.pop()
+      groups[groups.length - 1] = `${groups[groups.length - 1]} ${tail}`
+    }
+    for (const text of groups) out.push({ type: 'p', text })
+  }
+  return out
+}
+
+/**
  * Splits plain-text bodies on blank lines, recognising the small set of markers
  * editors actually use: "## " for a subhead, "> " for a pull quote, "- " lists.
+ * Flat bodies with no breaks at all are paragraphised by sentence.
  */
 export function parseBody(content) {
   const lines = String(content || '').split(/\r?\n/)
@@ -53,7 +115,7 @@ export function parseBody(content) {
   }
   flushParagraph()
   flushList()
-  return blocks
+  return paragraphize(blocks)
 }
 
 /**

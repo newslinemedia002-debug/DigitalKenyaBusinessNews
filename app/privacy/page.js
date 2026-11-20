@@ -3,10 +3,10 @@ import styles from '@/app/inner.module.css'
 export const metadata = {
   title: 'Privacy notice',
   description:
-    'How Trending News Kenya handles personal data on the site and in the newsletter.',
+    'How Kenya Business News handles personal data on the site and in the newsletter.',
   alternates: { canonical: '/privacy' },
   openGraph: {
-    title: 'Privacy - Trending News Kenya',
+    title: 'Privacy - Kenya Business News',
     url: '/privacy',
     type: 'website',
     locale: 'en_KE',
@@ -39,7 +39,7 @@ export default function PrivacyPage() {
           encrypted and used only to send the newsletter. It is never sold, rented or
           shared with any third party. Every email carries a one-click unsubscribe link.
           Subscribers can request deletion at any time by writing to
-          <code>editor@trendingnewskenya.co.ke</code>.
+          <code>editor@digitalkenyabusinessnews.co.ke</code>.
         </p>
 
         <h2>Comments</h2>

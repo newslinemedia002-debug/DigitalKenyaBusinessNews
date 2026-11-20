@@ -6,7 +6,7 @@ import styles from './login.module.css'
 
 export const metadata = {
   title: 'Editorial login',
-  description: 'Sign in to the Trending News Kenya newsroom desk.',
+  description: 'Sign in to the Kenya Business News newsroom desk.',
   robots: { index: false, follow: false },
 }
 
@@ -32,7 +32,7 @@ export default async function LoginPage({ searchParams }) {
         <p className={styles.kicker}>Newsroom</p>
         <h1 className={styles.title}>Editorial sign-in</h1>
         <p className={styles.dek}>
-          Staff of Trending News Kenya sign in here to write, edit and publish. Accounts are
+          Staff of Kenya Business News sign in here to write, edit and publish. Accounts are
           created by an administrator.
         </p>
 

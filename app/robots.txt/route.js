@@ -10,7 +10,7 @@ export async function GET() {
   // read and cite the site. Being explicit here is what lets engines like
   // ChatGPT, Gemini/Copilot, Claude and Perplexity retrieve and quote our
   // reporting instead of skipping it.
-  const policies = `# Trending News Kenya — crawler policy
+  const policies = `# Kenya Business News — crawler policy
 # Search and AI answer engines may read, index and cite this site.
 
 User-agent: *

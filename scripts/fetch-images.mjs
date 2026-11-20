@@ -11,7 +11,7 @@ import { mkdir, writeFile } from 'node:fs/promises'
 import path from 'node:path'
 
 const API = 'https://commons.wikimedia.org/w/api.php'
-const UA = 'TrendingNewsKenya/1.0 (newsroom demo build; contact: newsroom@example.com)'
+const UA = 'KenyaBusinessNews/1.0 (newsroom demo build; contact: newsroom@example.com)'
 
 const TARGETS = [
   { slug: 'nairobi-skyline', query: 'Nairobi skyline', alt: 'The Nairobi skyline at dusk' },

@@ -801,3 +801,275 @@
 .counterLow {
   color: #a1151a;
 }
+
+/* ============================================================
+   Times layout layer — the desk follows the paper: cream, serif,
+   hairlines, square corners, no shadows.
+   ============================================================ */
+
+.shell {
+  background: var(--paper);
+  color: var(--ink-soft);
+}
+
+.topbar {
+  background: var(--paper);
+  color: var(--ink);
+  border-top: 0;
+  border-bottom: 1px solid var(--ink);
+}
+
+.wordmark {
+  font-family: var(--display);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+}
+
+.wordmarkMeta {
+  color: var(--muted);
+}
+
+.navLink {
+  font-family: var(--serif);
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--ink-soft);
+  padding: 10px 11px;
+  border-radius: 0;
+  border-bottom: 2px solid transparent;
+}
+
+.navLink:hover {
+  background: transparent;
+  color: var(--ink);
+  border-bottom-color: var(--rule);
+}
+
+.navLinkActive,
+.navLinkActive:hover {
+  background: transparent;
+  color: var(--ink);
+  font-weight: 700;
+  border-bottom-color: var(--ink);
+}
+
+.whoName {
+  color: var(--ink);
+}
+
+.whoRole {
+  color: var(--muted);
+}
+
+.banner {
+  background: var(--paper-2);
+  border-bottom: 1px solid var(--rule);
+  color: var(--ink-soft);
+}
+
+.title {
+  font-family: var(--serif);
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  color: var(--ink);
+}
+
+.kicker {
+  font-family: var(--sans);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.lede {
+  font-family: var(--serif);
+  color: var(--muted);
+}
+
+.stats {
+  gap: 0;
+  border-top: 1px solid var(--ink);
+  border-bottom: 1px solid var(--ink);
+}
+
+.stat {
+  background: transparent;
+  border: 0;
+  border-right: 1px solid var(--rule);
+  border-radius: 0;
+  padding: 14px 16px;
+}
+
+.stat:last-child {
+  border-right: 0;
+}
+
+.statValue {
+  font-family: var(--serif);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+}
+
+.statLabel {
+  font-family: var(--sans);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--faint);
+}
+
+.panel {
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.panelHead {
+  border-bottom: 1px solid var(--ink);
+  background: var(--paper);
+}
+
+.panelTitle {
+  font-family: var(--serif);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+}
+
+.panelMore {
+  font-family: var(--sans);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+
+.table {
+  font-family: var(--serif);
+}
+
+.table th {
+  font-family: var(--sans);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  background: var(--paper-2);
+  border-bottom: 1px solid var(--ink);
+}
+
+.table td {
+  border-bottom: 1px solid var(--rule-soft);
+  color: var(--ink-soft);
+}
+
+.table tbody tr:hover {
+  background: var(--paper-2);
+}
+
+.cellTitle {
+  font-family: var(--serif);
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.badge {
+  border-radius: 0;
+  font-family: var(--sans);
+  letter-spacing: 0.1em;
+}
+
+.btn {
+  border-radius: 0;
+  font-family: var(--sans);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.btnPrimary,
+.btnAccent {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: var(--paper);
+}
+
+.btnPrimary:hover,
+.btnAccent:hover {
+  background: var(--black);
+  border-color: var(--black);
+}
+
+.btnGhost {
+  background: transparent;
+  border-color: var(--ink);
+  color: var(--ink);
+}
+
+.input,
+.textarea,
+.select {
+  border-radius: 0;
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  font-family: var(--serif);
+  color: var(--ink);
+}
+
+.input:focus,
+.textarea:focus,
+.select:focus {
+  border-color: var(--ink);
+  outline: 1px solid var(--ink);
+}
+
+.label {
+  font-family: var(--sans);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.notice {
+  border-radius: 0;
+  font-family: var(--sans);
+  background: var(--paper-2);
+  border: 1px solid var(--rule);
+}
+
+.member,
+.metaList li {
+  border-radius: 0;
+  border-bottom: 1px solid var(--rule-soft);
+}
+
+.footer {
+  border-top: 1px solid var(--ink);
+  font-family: var(--sans);
+  font-size: 10.5px;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+  background: var(--paper);
+}
+
+/* The desk bar became paper-white in this layer, so the sign-out button,
+   styled for the old dark bar, vanished into the background. Ink border and
+   ink label, inverting on hover. */
+.onDark {
+  background: transparent;
+  border-color: var(--ink);
+  color: var(--ink);
+}
+
+.onDark:hover {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: var(--paper);
+}

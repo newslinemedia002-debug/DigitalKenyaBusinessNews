@@ -4,7 +4,7 @@ import styles from '@/app/inner.module.css'
 
 export const metadata = {
   title: 'Search',
-  description: 'Search reporting from the Trending News Kenya newsroom.',
+  description: 'Search reporting from the Kenya Business News newsroom.',
   robots: { index: false, follow: true },
 }
 

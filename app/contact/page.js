@@ -5,10 +5,10 @@ import styles from '@/app/inner.module.css'
 export const metadata = {
   title: 'Contact',
   description:
-    'Get in touch with the Trending News Kenya editorial team.',
+    'Get in touch with the Kenya Business News editorial team.',
   alternates: { canonical: '/contact' },
   openGraph: {
-    title: 'Contact - Trending News Kenya',
+    title: 'Contact - Kenya Business News',
     url: '/contact',
     type: 'website',
     locale: 'en_KE',
@@ -19,9 +19,9 @@ export default function ContactPage() {
   const sectionLd = {
     '@context': 'https://schema.org',
     '@type': 'Organization',
-    name: 'Trending News Kenya',
+    name: 'Kenya Business News',
     url: siteUrl(),
-    email: 'mailto:editor@trendingnewskenya.co.ke',
+    email: 'mailto:editor@digitalkenyabusinessnews.co.ke',
   }
 
   const breadcrumbLd = {
@@ -55,8 +55,8 @@ export default function ContactPage() {
           For story tips, corrections, or any editorial inquiry, write to:
         </p>
         <p>
-          <a href="mailto:editor@trendingnewskenya.co.ke">
-            editor@trendingnewskenya.co.ke
+          <a href="mailto:editor@digitalkenyabusinessnews.co.ke">
+            editor@digitalkenyabusinessnews.co.ke
           </a>
         </p>
 
@@ -65,7 +65,7 @@ export default function ContactPage() {
           For advertising rates, sponsored content or partnership proposals, write to:
         </p>
         <p>
-          <a href="mailto:sales@trendingnewskenya.co.ke">sales@trendingnewskenya.co.ke</a>
+          <a href="mailto:sales@digitalkenyabusinessnews.co.ke">sales@digitalkenyabusinessnews.co.ke</a>
         </p>
 
         <h2>General enquiries</h2>
@@ -76,7 +76,7 @@ export default function ContactPage() {
 
         <h2>Postal address</h2>
         <p>
-          Trending News Kenya<br />
+          Kenya Business News<br />
           Taifa Road<br />
           Nairobi, Kenya<br />
           <code>00200</code>

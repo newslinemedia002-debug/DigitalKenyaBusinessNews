@@ -285,9 +285,21 @@ export default async function ArticlePage({ params }) {
                 <p className={styles.authorName}>{article.source}</p>
                 <p className={styles.authorRole}>Publisher · wire story</p>
                 <p className={styles.authorBio}>
-                  This story was first published by {article.source}. Trending News Kenya carries
+                  This story was first published by {article.source}. Kenya Business News carries
                   it on-site so readers can stay here, with the publisher credited above.
                 </p>
+                {article.originalUrl && (
+                  <p className={styles.sourceLinkWrap}>
+                    <a
+                      href={article.originalUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={styles.sourceLink}
+                    >
+                      Read the original story at {article.source} →
+                    </a>
+                  </p>
+                )}
               </div>
             </div>
           ) : (
@@ -308,7 +320,7 @@ export default async function ArticlePage({ params }) {
           {article.wire ? (
             <p className={styles.policyNote}>
               This report was written and published by <strong>{article.source}</strong>, not by
-              the Trending News Kenya newsroom. It is republished here in full with credit to the
+              the Kenya Business News newsroom. It is republished here in full with credit to the
               publisher, and the headline remains the copyright of {article.source}. Read our{' '}
               <Link href="/about#standards">attribution policy</Link>. Photographs are the
               publisher&apos;s and are credited above.
@@ -316,7 +328,7 @@ export default async function ArticlePage({ params }) {
             </p>
           ) : (
             <p className={styles.policyNote}>
-              This story was reported and edited by the Trending News Kenya newsroom. Read our{' '}
+              This story was reported and edited by the Kenya Business News newsroom. Read our{' '}
               <Link href="/about#standards">editorial standards</Link> and{' '}
               <Link href="/about#corrections">corrections policy</Link>. Photographs are credited
               above; illustrative images are licensed from their authors.

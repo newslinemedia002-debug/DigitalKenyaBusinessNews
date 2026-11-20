@@ -3,6 +3,11 @@ const nextConfig = {
   // Public pages use ISR; routes that need a live database opt out with
   // `dynamic = 'force-dynamic'`.
   cacheComponents: false,
+  experimental: {
+    // Keep a visited page in the client router cache for a minute so moving
+    // back and forth between the front page and a section is instant.
+    staleTimes: { dynamic: 60, static: 300 },
+  },
   images: {
     formats: ['image/avif', 'image/webp'],
     remotePatterns: [

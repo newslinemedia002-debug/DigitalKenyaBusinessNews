@@ -5,7 +5,7 @@
 import { mkdir, readFile, writeFile } from 'node:fs/promises'
 import path from 'node:path'
 
-const UA = 'TrendingNewsKenya/1.0 (newsroom demo build)'
+const UA = 'KenyaBusinessNews/1.0 (newsroom demo build)'
 const TARGETS = [
   { slug: 'parliament', q: 'Kenya parliament building Nairobi', alt: 'The Parliament of Kenya in Nairobi' },
   { slug: 'nairobi-street', q: 'Nairobi street scene', alt: 'A street in downtown Nairobi' },

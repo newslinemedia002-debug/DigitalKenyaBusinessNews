@@ -3,9 +3,9 @@ import { SITE_NAME, siteUrl } from '@/lib/site'
 import StoryCard from '@/components/StoryCard'
 import styles from '@/app/inner.module.css'
 
-// Render per request so the page always shows the stored archive as it is.
-export const dynamic = 'force-dynamic'
-export const fetchCache = 'force-no-store'
+// The wire changes only when the desk syncs, so a 30-second cache is enough
+// to keep the page current while making repeat visits instant.
+export const revalidate = 30
 
 export const metadata = {
   title: 'The wire — headlines from other newsrooms',
