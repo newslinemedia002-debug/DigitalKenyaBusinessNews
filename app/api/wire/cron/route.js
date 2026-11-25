@@ -9,9 +9,10 @@ export const maxDuration = 60
 /**
  * The scheduled wire refresh.
  *
- * Called once a day by `netlify/functions/wire-daily.mjs`. Readers never hit
- * this route, so the stored archive only changes on the daily run or when an
- * editor presses refresh in the desk.
+ * Scheduled by the `crons` entry in vercel.json: Vercel calls this route on the
+ * schedule and supplies `Authorization: Bearer $CRON_SECRET` from the project's
+ * environment. Readers never hit this route, so the stored archive only changes
+ * on a scheduled run or when an editor presses refresh in the desk.
  *
  * Guarded by CRON_SECRET: without the variable the route refuses to run rather
  * than leave an unauthenticated write on the public internet.
