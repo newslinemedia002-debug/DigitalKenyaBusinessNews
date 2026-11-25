@@ -1,5 +1,7 @@
+import { after } from 'next/server'
 import Link from 'next/link'
 import { getAllArticles } from '@/lib/content'
+import { refreshWireIfStale } from '@/lib/wire-sync'
 import {
   SITE_NAME,
   dateline,
@@ -38,7 +40,9 @@ const DATE_KEY = new Intl.DateTimeFormat('en-CA', {
 })
 
 export default async function LatestPage() {
-  // Stored rows only: a reader's visit never triggers a feed fetch or a write.
+  // Stored rows only, so a reader never waits on a feed fetch or a write; the
+  // refresh below runs after the response has gone out.
+  after(() => refreshWireIfStale())
   const articles = await getAllArticles()
 
   const groups = []

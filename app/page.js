@@ -1,3 +1,4 @@
+import { after } from 'next/server'
 import Link from 'next/link'
 import { buildFrontPage } from '@/lib/frontpage'
 import { articleImageUrl, getBreakingArticles, getFeaturedArticle } from '@/lib/content'
@@ -8,6 +9,7 @@ import SectionHeader from '@/components/SectionHeader'
 import LatestStrip from '@/components/LatestStrip'
 import MostRead from '@/components/MostRead'
 import NewsletterBand from '@/components/NewsletterBand'
+import { refreshWireIfStale } from '@/lib/wire-sync'
 import styles from './page.module.css'
 
 // The front page prints from the stored archive, so it can be served from the
@@ -75,6 +77,9 @@ function OpinionItem({ article }) {
 }
 
 export default async function HomePage() {
+  // Keep the wire current between scheduled runs, after the page is sent.
+  after(() => refreshWireIfStale())
+
   const { lead, secondary, latest, sections, topics, mostRead } = await buildFrontPage()
 
   const kenya = sections.kenya || []
