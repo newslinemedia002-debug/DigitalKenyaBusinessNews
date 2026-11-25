@@ -1,4 +1,3 @@
-import { after } from 'next/server'
 import Link from 'next/link'
 import { buildFrontPage } from '@/lib/frontpage'
 import { articleImageUrl, getBreakingArticles, getFeaturedArticle } from '@/lib/content'
@@ -9,16 +8,11 @@ import SectionHeader from '@/components/SectionHeader'
 import LatestStrip from '@/components/LatestStrip'
 import MostRead from '@/components/MostRead'
 import NewsletterBand from '@/components/NewsletterBand'
-import { refreshWireIfStale } from '@/lib/wire-sync'
 import styles from './page.module.css'
 
 // The front page prints from the stored archive, so it can be served from the
 // full route cache and refreshed in the background every 30 seconds.
 export const revalidate = 30
-
-// The refresh below pulls a dozen publisher feeds after the page is sent, which
-// needs more than the default function budget on a Hobby plan.
-export const maxDuration = 60
 
 export async function generateMetadata() {
   // Sharing the front page should preview the day's lead story: the breaking
@@ -81,9 +75,6 @@ function OpinionItem({ article }) {
 }
 
 export default async function HomePage() {
-  // Keep the wire current between scheduled runs, after the page is sent.
-  after(() => refreshWireIfStale())
-
   const { lead, secondary, latest, sections, topics, mostRead } = await buildFrontPage()
 
   const kenya = sections.kenya || []

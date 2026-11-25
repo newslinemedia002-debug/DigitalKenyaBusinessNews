@@ -1,6 +1,7 @@
 import localFont from 'next/font/local'
 import './globals.css'
 import SiteChrome from '@/components/SiteChrome'
+import WireTicker from '@/components/WireTicker'
 import { SITE_NAME, SITE_DESCRIPTION, SITE_TAGLINE, siteUrl } from '@/lib/site'
 import { getFeaturedArticle, articleImageUrl } from '@/lib/content'
 
@@ -178,6 +179,7 @@ export default function RootLayout({ children }) {
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationLd) }}
         />
+        <WireTicker />
       </body>
     </html>
   )

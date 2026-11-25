@@ -1,7 +1,5 @@
-import { after } from 'next/server'
 import Link from 'next/link'
 import { getAllArticles } from '@/lib/content'
-import { refreshWireIfStale } from '@/lib/wire-sync'
 import {
   SITE_NAME,
   dateline,
@@ -14,7 +12,6 @@ import styles from '@/app/inner.module.css'
 // The archive changes only when the desk writes, so a 30-second cache is
 // enough to keep the page current while making repeat visits instant.
 export const revalidate = 30
-export const maxDuration = 60
 
 export const metadata = {
   title: 'Latest news from Kenya and the world',
@@ -41,9 +38,7 @@ const DATE_KEY = new Intl.DateTimeFormat('en-CA', {
 })
 
 export default async function LatestPage() {
-  // Stored rows only, so a reader never waits on a feed fetch or a write; the
-  // refresh below runs after the response has gone out.
-  after(() => refreshWireIfStale())
+  // Stored rows only: a reader's visit never triggers a feed fetch or a write.
   const articles = await getAllArticles()
 
   const groups = []
