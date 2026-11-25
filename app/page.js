@@ -16,6 +16,10 @@ import styles from './page.module.css'
 // full route cache and refreshed in the background every 30 seconds.
 export const revalidate = 30
 
+// The refresh below pulls a dozen publisher feeds after the page is sent, which
+// needs more than the default function budget on a Hobby plan.
+export const maxDuration = 60
+
 export async function generateMetadata() {
   // Sharing the front page should preview the day's lead story: the breaking
   // item when there is one, then the featured story, then the newest report.

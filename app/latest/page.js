@@ -14,6 +14,7 @@ import styles from '@/app/inner.module.css'
 // The archive changes only when the desk writes, so a 30-second cache is
 // enough to keep the page current while making repeat visits instant.
 export const revalidate = 30
+export const maxDuration = 60
 
 export const metadata = {
   title: 'Latest news from Kenya and the world',
